@@ -8,7 +8,9 @@
 					</div>
 					<div class="col-md-8">
 						<h2>{{artist.name}}</h2>
-						<span class="label label-danger" *ngFor="let tag of artist.tags.tag">{{tag.name}}</span>
+						<span class="label label-danger" *ngFor="let tag of artist.tags.tag">
+							<a href="tag/{{tag.name}}">{{tag.name}}</a>
+						</span>
 						<div class="content"><small [innerHTML]="artist.bio.summary"></small></div>
 					</div>
 				</div>				

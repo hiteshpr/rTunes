@@ -1,0 +1,16 @@
+<h1>Looking for Songs?</h1>
+<p class="lead">Search for most popular songs and music in your country!</p>
+<form>
+	<input type="text" class="form-control" name="searchQuery" [(ngModel)]="searchQuery" (keyup)="searchCountry()" placeholder="Enter a country name" autofocus>
+</form>
+
+<div *ngIf="searchRes">
+	<div class="row">
+		<div class="col-md-12">
+			<div class="well" *ngFor="let res of searchRes">
+				<img src="{{res.image[3]['#text']}}" height="50" alt="{{res.name}}">
+				<a routerLink="/artist/{{res.name}}">{{res.name}}</a>
+			</div>
+		</div>
+	</div>
+</div>
