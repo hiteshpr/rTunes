@@ -1,0 +1,32 @@
+<div *ngIf="album">
+	<div class="row">
+		<div class="col-md-12">
+			<div class="jumbotron">
+				<div class="row">
+					<div class="col-md-4">
+						<img src="{{album.image[4]['#text']}}" alt="{{album.name}}" class="img-rounded" height="300" width="300">
+					</div>
+					<div class="col-md-8">
+						<h2>{{album.name}} by {{album.artist}}</h2>
+						<span class="label label-danger" *ngFor="let tag of album.tags.tag">{{tag.name}}</span>
+						<div *ngIf="album.wiki" class="content"><small [innerHTML]="album.wiki.summary"></small></div>
+						<div *ngIf="album.wiki" class="publish-date">Released on {{album.wiki.published}}</div>
+					</div>
+				</div>				
+			</div>			
+		</div>
+	</div>
+	<h2>Tracks</h2>
+	<div class="row">
+		<div class="col-md-12">
+			<div class="well" *ngFor="let track of album.tracks.track">
+				<img src="{{album.image[3]['#text']}}" height="50" alt="{{track.name}}">
+				<a>{{track.name}}</a>
+				<a href="https://www.youtube.com/results?search_query={{track.name}}" target="_blank">
+					<img src="https://www.youtube.com/yt/about/media/images/brand-resources/icons/YouTube_icon_full-color.svg" height="50" alt="Watch on Youtube" class="pull-right">
+				</a>
+				<a href="{{track.url}}" target="_blank" class="btn btn-success pull-right">Play</a>
+			</div>
+		</div>
+	</div>
+</div>

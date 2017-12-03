@@ -3,3 +3,35 @@ h1 {
   font-family: Arial, Helvetica, sans-serif;
   font-size: 250%;
 }
+input {
+	margin-bottom: 20px;
+}
+a {
+	text-decoration: none !important;
+}
+.navbar {
+	border-bottom: 2px solid grey;
+}
+.jumbotron {
+	padding: 20px;
+}
+.row .well {
+	padding: 4px;
+	margin-bottom: 10px;
+}
+.row .well a {
+	font-size: 20px;
+    margin-left: 20px;
+    vertical-align: middle;
+}
+.jumbotron .label-danger {
+	margin-right: 10px;
+}
+.jumbotron .content {
+	font-size: 16px;
+	margin-top: 20px;
+}
+.publish-date {
+	font-weight: bold;
+	margin-top: 20px;
+}

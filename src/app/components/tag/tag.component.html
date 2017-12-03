@@ -1,0 +1,22 @@
+<div *ngIf="description">
+	<div class="row">
+		<div class="col-md-12">
+			<div class="jumbotron">
+				<h1>{{name}}</h1>
+				<div class="content"><small [innerHTML]="description"></small></div>				
+			</div>			
+		</div>
+	</div>
+</div>
+
+<h1>Top Artists</h1>
+<div *ngIf="artists">
+	<div class="row">
+		<div class="col-md-12">
+			<div class="well" *ngFor="let artist of artists">
+				<img src="{{artist.image[3]['#text']}}" height="50" alt="{{artist.name}}">
+				<a routerLink="/artist/{{artist.name}}">{{artist.name}}</a>
+			</div>
+		</div>
+	</div>
+</div>
