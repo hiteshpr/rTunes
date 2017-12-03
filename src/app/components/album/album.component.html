@@ -22,6 +22,9 @@
 			<div class="well" *ngFor="let track of album.tracks.track">
 				<img src="{{album.image[3]['#text']}}" height="50" alt="{{track.name}}">
 				<a>{{track.name}}</a>
+				<a href="https://www.youtube.com/results?search_query={{track.name}}" target="_blank">
+					<img src="https://www.youtube.com/yt/about/media/images/brand-resources/icons/YouTube_icon_full-color.svg" height="50" alt="Watch on Youtube" class="pull-right">
+				</a>
 				<a href="{{track.url}}" target="_blank" class="btn btn-success pull-right">Play</a>
 			</div>
 		</div>

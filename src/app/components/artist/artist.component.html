@@ -25,6 +25,9 @@
 			<div class="well" *ngFor="let album of albums">
 				<img src="{{album.image[3]['#text']}}" height="50" alt="{{album.name}}">
 				<a href="album/{{album.mbid}}">{{album.name}}</a>
+				<a href="https://www.youtube.com/results?search_query={{album.name}}" target="_blank">
+					<img src="https://www.youtube.com/yt/about/media/images/brand-resources/icons/YouTube_icon_full-color.svg" height="50" alt="Watch on Youtube" class="pull-right">
+				</a>
 			</div>
 		</div>
 	</div>
