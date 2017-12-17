@@ -1,0 +1,55 @@
+
+.tile {
+    min-height: 200px;
+    background-color: #ccc;
+    background-size: cover !important;
+}
+
+.tile h1 {
+    text-align: center;
+    line-height: 200px;
+    background: rgba(0, 0, 0, 0.32);
+    color: white;
+    margin: 0;
+}
+
+
+.wBg {
+    background: #2d120d;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+
+.leftRs {
+    position: absolute;
+    margin: auto;
+    top: 0;
+    bottom: 0;
+    width: 50px;
+    height: 50px;
+    box-shadow: 1px 2px 10px -1px rgba(0, 0, 0, .3);
+    border-radius: 999px;
+    left: 0;
+}
+
+.rightRs {
+
+    position: absolute;
+    margin: auto;
+    top: 0;
+    bottom: 0;
+    width: 50px;
+    height: 50px;
+    box-shadow: 1px 2px 10px -1px rgba(0, 0, 0, .3);
+    border-radius: 999px;
+    right: 0;
+}
+.caraousel-text {
+    margin: 0!important;
+    padding: 10px 15px!important;
+    text-align: center!important;
+}

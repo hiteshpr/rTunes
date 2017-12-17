@@ -69,3 +69,43 @@
 	    </div>
 	</div>
 </div>
+
+ <!-- Tracks Carousel starts -->
+<div class="container">
+    <h2>Trending Tracks in {{userCountry}}</h2>
+    <ngx-carousel [inputs]="carouselTileOne" >
+        <ngx-tile NgxCarouselItem *ngFor="let tile of carouselTileTwoItems; let i = index;">
+            <div class="wBg" style=" height: 297px;">
+                 <a href="{{tile.url}}">
+                <div class="tile" class="tile"  [style.background]="'url(' + tile.image + ')'">
+                </div>
+               <h4 class="caraousel-text">{{tile.name}}</h4>
+               <p class="caraousel-text">{{tile.artist}}</p>
+               </a>
+            </div>
+        </ngx-tile>
+        <button NgxCarouselPrev class="leftRs">&lt;</button>
+        <button NgxCarouselNext class="rightRs">&gt;</button>
+    </ngx-carousel>
+ </div>
+ <!-- Tracks Carousel ends -->
+ 
+<!-- Artist Carousel starts -->
+<div class="container">
+    <h2>Trending Artists in {{userCountry}}</h2>
+    <ngx-carousel [inputs]="carouselTileOne" >
+        <ngx-tile NgxCarouselItem *ngFor="let tile of carouselTileOneItems; let i = index;"  >
+            <div class="wBg" >
+            <a href="{{tile.url}}">
+                <div class="tile" class="tile"  [style.background]="'url(' + tile.image + ')'">
+                </div>
+               <h4 class="caraousel-text">{{tile.name}}</h4>
+               </a>
+            </div>
+        </ngx-tile>
+        <button NgxCarouselPrev class="leftRs">&lt;</button>
+        <button NgxCarouselNext class="rightRs">&gt;</button>
+    </ngx-carousel>
+ </div>
+ <!-- Artist Carousel ends -->
+

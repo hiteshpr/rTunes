@@ -12,8 +12,8 @@ export class SpotifyService{
 	private countryUrl: string;
 	private tagUrl: string;
 	private tagArtistsUrl: string;
-
-
+	private topArtistUrl:string;
+	private topTracksUrl:string;
 	apiToken = environment.apiToken;
 
 	constructor(private _http:Http){}
@@ -68,4 +68,21 @@ export class SpotifyService{
 
 		return this._http.get(this.tagArtistsUrl).map(res => res.json());
 	}
+
+	 getTopArtists(country:string){
+    
+    this.topArtistUrl = 'http://ws.audioscrobbler.com/2.0/?method=geo.gettopartists&country='+ country +'&api_key='+this.apiToken+'&format=json&limit=15';
+    
+    return this._http.get(this.topArtistUrl).map(res => res.json());
+
+  }
+
+   getTopTracks(country:string){
+    
+    this.topTracksUrl = 'http://ws.audioscrobbler.com/2.0/?method=geo.gettoptracks&country='+ country +'&api_key='+this.apiToken+'&format=json&limit=15';
+    
+    return this._http.get(this.topTracksUrl).map(res => res.json());
+
+  }
+
 }
