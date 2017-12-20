@@ -54,3 +54,34 @@
 	    </div>
 	</div>
 </div>
+<!--Scroll to top-->
+<div class="scroll-to-top" [ngClass]="{'show-scroll': navIsFixed}">
+    <button class="scroll" (click)="scrollToTop()">
+        Top
+    </button>
+</div>
+
+<style type="text/css">
+	.scroll-to-top {
+    position: fixed;
+    bottom: 28px;
+    right: 15px;
+    opacity: 0;
+    transition: all .2s ease-in-out;
+}
+
+.show-scroll {
+    opacity: 1;
+    transition: all .2s ease-in-out;
+}
+.scroll {
+    z-index: 99;
+    border: none;
+    outline: none;
+    background-color: #6b6464;
+    color: white;
+    cursor: pointer;
+    padding: 15px;
+    border-radius: 10px;
+}
+</style>

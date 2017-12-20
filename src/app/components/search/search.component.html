@@ -108,4 +108,9 @@
     </ngx-carousel>
  </div>
  <!-- Artist Carousel ends -->
-
+<!--Scroll to top-->
+<div class="scroll-to-top" [ngClass]="{'show-scroll': navIsFixed}">
+    <button class="scroll" (click)="scrollToTop()">
+        Top
+    </button>
+</div>

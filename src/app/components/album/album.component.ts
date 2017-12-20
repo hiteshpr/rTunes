@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject, HostListener } from '@angular/core';
 import { SpotifyService } from '../../services/spotify.service';
 import { Album } from '../../../../Album';
 import { ActivatedRoute } from '@angular/router';
 import { PagerService } from '../../services/pager.service';
+import { DOCUMENT } from "@angular/platform-browser";
 
 @Component({
   moduleId: module.id,
@@ -16,7 +17,9 @@ export class AlbumComponent implements OnInit{
 	rateArray: number[];
 	pager: any = {};
 	pagedItems: any[];
-	constructor(private _spotifyService:SpotifyService, private _route:ActivatedRoute, private _pagerService: PagerService) {}
+	navIsFixed: boolean;
+
+	constructor(private _spotifyService:SpotifyService, private _route:ActivatedRoute, private _pagerService: PagerService, @Inject(DOCUMENT) private document: Document) {}
 
 	ngOnInit() {
 		this._route.params.map(params => params['id']).subscribe((id) => {
@@ -58,4 +61,17 @@ export class AlbumComponent implements OnInit{
 			return 1;
 		}
 	}
+
+	
+	//Functionality for scroll
+	@HostListener("window:scroll", [])
+    	onWindowScroll() {
+        	if (window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop > 200) {
+            	this.navIsFixed = true;
+        	} else if (this.navIsFixed && window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop < 10) { this.navIsFixed = false; } } scrollToTop() { (function smoothscroll() { var currentScroll = document.documentElement.scrollTop || document.body.scrollTop; if (currentScroll > 0) {
+            	    window.requestAnimationFrame(smoothscroll);
+	                window.scrollTo(0, currentScroll - (currentScroll / 5));
+    	        }
+        	})();
+    	}
 }
