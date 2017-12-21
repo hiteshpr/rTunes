@@ -1,11 +1,9 @@
-import { Component, OnInit, Inject, HostListener } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
 import { SpotifyService } from '../../services/spotify.service';
 import { Artist } from '../../../../Artist';
 import { PagerService } from '../../services/pager.service';
 import { NgxCarousel } from 'ngx-carousel'; 
 import { LocationService } from '../../services/location.service';
-
-import { DOCUMENT } from "@angular/platform-browser";
 
 @Component({
   moduleId: module.id,
@@ -29,9 +27,9 @@ export class SearchComponent {
 	public carouselTileOneItems: Array<any> = [];
 	public carouselTileTwoItems: Array<any> = [];
   	public carouselTileOne: NgxCarousel;
-  	navIsFixed: boolean;
+  	
 
-	constructor(private _spotifyService:SpotifyService, private _pagerService: PagerService, private _locationService:LocationService, @Inject(DOCUMENT) private document: Document) {}
+	constructor(private _spotifyService:SpotifyService, private _pagerService: PagerService, private _locationService:LocationService) {}
 
 	searchArtist() {
 		if(this.searchQuery != undefined && this.searchQuery != '')
@@ -185,15 +183,6 @@ export class SearchComponent {
 		
 		}
 
-	@HostListener("window:scroll", [])
-    onWindowScroll() {
-        if (window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop > 200) {
-            this.navIsFixed = true;
-        } else if (this.navIsFixed && window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop < 10) { this.navIsFixed = false; } } scrollToTop() { (function smoothscroll() { var currentScroll = document.documentElement.scrollTop || document.body.scrollTop; if (currentScroll > 0) {
-                window.requestAnimationFrame(smoothscroll);
-                window.scrollTo(0, currentScroll - (currentScroll / 5));
-            }
-        })();
-    }
+
 
 }
