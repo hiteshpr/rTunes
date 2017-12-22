@@ -1,0 +1,17 @@
+{
+  "name": "rTunes - Find artists and display albums and tracks listings",
+  "short_name": "rTunes",
+  "description":"rTunes is a web application developed on Angular2 that uses API provided by last.fm",
+  "icons": [
+    {
+      "src": "./assets/images/favicon.png",
+      "sizes": "192x192",
+      "type": "image\/png"
+    }
+  ],
+  "theme_color": "#2C2E34",
+  "background_color": "#ffffff",
+  "display": "standalone",
+  "orientation": "portrait",
+  "start_url": "./"
+}
