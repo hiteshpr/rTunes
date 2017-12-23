@@ -10,7 +10,7 @@
     	<label><h4>Album</h4></label>
 </div>
 <form>
-	<input type="text" class="form-control" name="searchQuery" [(ngModel)]="searchQuery" (keyup)="searchBasedOnCategory('')" placeholder="Search Artist or Band or Track or Album...." autofocus>
+	<input type="text" class="form-control" [disabled]="searchbar" name="searchQuery" [(ngModel)]="searchQuery" (keyup)="searchBasedOnCategory('')" placeholder="Search Artist or Band or Track or Album...." autofocus>
 </form>
 
 <div *ngIf="searchRes && searchCategory">

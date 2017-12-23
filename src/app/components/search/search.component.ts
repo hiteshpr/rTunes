@@ -27,7 +27,7 @@ export class SearchComponent {
 	public carouselTileOneItems: Array<any> = [];
 	public carouselTileTwoItems: Array<any> = [];
   	public carouselTileOne: NgxCarousel;
-  	
+  	searchbar=true;
 
 	constructor(private _spotifyService:SpotifyService, private _pagerService: PagerService, private _locationService:LocationService) {}
 
@@ -66,6 +66,9 @@ export class SearchComponent {
         this.pagedItems = this.searchRes.slice(this.pager.startIndex, this.pager.endIndex + 1);
 	}
 	searchBasedOnCategory(category: string) {
+
+		this.searchbar = false;
+
 		if(category != '')
 		{
 			this.searchCategory = category;
