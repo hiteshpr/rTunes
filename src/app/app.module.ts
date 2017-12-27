@@ -15,11 +15,11 @@ import { TagComponent } from './components/tag/tag.component';
 import { NgxCarouselModule } from 'ngx-carousel';
 import { PagerService } from './services/pager.service';
 import { LocationService } from './services/location.service';
-
+import { TrackChartComponent } from './components/track-chart/track-chart.component';
 
 @NgModule({
   imports:      [ NgxCarouselModule,BrowserModule, AppRoutingModule, HttpModule, FormsModule ],
-  declarations: [ AppComponent, NavbarComponent, AboutComponent, SearchComponent, ArtistComponent, AlbumComponent, CountryComponent, TagComponent],
+  declarations: [ AppComponent, NavbarComponent, AboutComponent, SearchComponent, ArtistComponent, AlbumComponent, CountryComponent, TagComponent,TrackChartComponent],
   providers: [PagerService,LocationService],
   bootstrap:    [ AppComponent ]
 })

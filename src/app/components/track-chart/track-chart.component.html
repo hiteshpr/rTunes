@@ -1,0 +1,28 @@
+<h2 class="heading" >The rTunes Top 10</h2>
+
+<table class="table table-hover">
+    <thead>
+      <tr>
+      	 <th>Position This Week</th>
+         <th></th>
+         <th>Song Name</th>
+         <th>Artist Name</th>
+         <th>Listeners</th>
+         <th>Playcount</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let info of tracksInfo;let i = index;">
+        <td>{{i+1}}</td>
+        <td><img class="img-responsive img-circle img-center" src="{{ info.image[2]['#text'] }}"></td>
+        <td><h4><a href="{{info.url}}">{{info.name}}</a></h4>
+       <a href="https://www.youtube.com/results?search_query={{info.name}}" target="_blank">
+		<img src="https://www.youtube.com/yt/about/media/images/brand-resources/icons/YouTube_icon_full-color.svg" height="50" style="margin-top: 30px;" alt="Watch on Youtube">
+		</a>
+		</td>
+        <td><h5><a routerLink="/artist/{{info.artist.name}}">{{info.artist.name}}</a></h5></td>
+        <td>{{info.listeners | number:'.0'}}</td>
+        <td>{{info.playcount | number:'.0'}}</td>
+      </tr>
+    </tbody>
+  </table>

@@ -1,5 +1,6 @@
 <h1>Looking for Songs?</h1>
 <p class="lead">Search for songs and music in all languages!</p>
+<a routerLink="charts/top-10"><button class="btn pull-right" style="color: #000;">rTunes Top 10 Chart is here!</button></a>
 <div>
     <h4>Search for :</h4>
     <input [(ngModel)]="searchCategory" name="searchCategory" value="Artist" type="radio" (click)="searchBasedOnCategory('Artist')">
@@ -8,6 +9,7 @@
     	<label><h4>Track&nbsp;&nbsp;</h4></label>
     <input  [(ngModel)]="searchCategory" name="searchCategory" value="Album" type="radio" (click)="searchBasedOnCategory('Album')">
     	<label><h4>Album</h4></label>
+
 </div>
 <form>
 	<input type="text" class="form-control" name="searchQuery" [(ngModel)]="searchQuery" (keyup)="searchBasedOnCategory('')" placeholder="Search Artist or Band or Track or Album...." autofocus>

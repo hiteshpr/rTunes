@@ -14,6 +14,7 @@ export class SpotifyService{
 	private tagArtistsUrl: string;
 	private topArtistUrl:string;
 	private topTracksUrl:string;
+	private trackChartUrl: string;
 	apiToken = environment.apiToken;
 
 	constructor(private _http:Http){}
@@ -83,6 +84,13 @@ export class SpotifyService{
     
     return this._http.get(this.topTracksUrl).map(res => res.json());
 
+  }
+
+  getTrackChart(){
+
+  	this.trackChartUrl= 'http://ws.audioscrobbler.com/2.0/?method=chart.gettoptracks&api_key='+this.apiToken+'&format=json&limit=10';
+
+  	return this._http.get(this.trackChartUrl).map(res => res.json());
   }
 
 }
