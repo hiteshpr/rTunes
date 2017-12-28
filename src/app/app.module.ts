@@ -16,9 +16,10 @@ import { NgxCarouselModule } from 'ngx-carousel';
 import { PagerService } from './services/pager.service';
 import { LocationService } from './services/location.service';
 import { TrackChartComponent } from './components/track-chart/track-chart.component';
+import { SelectModule } from 'ng2-select';
 
 @NgModule({
-  imports:      [ NgxCarouselModule,BrowserModule, AppRoutingModule, HttpModule, FormsModule ],
+  imports:      [ NgxCarouselModule,BrowserModule, AppRoutingModule, HttpModule, FormsModule, SelectModule ],
   declarations: [ AppComponent, NavbarComponent, AboutComponent, SearchComponent, ArtistComponent, AlbumComponent, CountryComponent, TagComponent,TrackChartComponent],
   providers: [PagerService,LocationService],
   bootstrap:    [ AppComponent ]

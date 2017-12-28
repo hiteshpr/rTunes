@@ -1,8 +1,10 @@
 <h1>Looking for Songs?</h1>
 <p class="lead">Search for most popular songs and music in your country!</p>
-<form>
-	<input type="text" class="form-control" name="searchQuery" [(ngModel)]="searchQuery" (keyup)="searchCountry()" placeholder="Enter a country name" autofocus>
-</form>
+
+<ng-select  [items]="items"
+              (selected)="selected($event)"
+              name="searchQuery" [(ngModel)]="searchQuery" placeholder="Enter country name" autofocus>
+</ng-select>
 
 <div *ngIf="searchRes">
 	<div class="row">
