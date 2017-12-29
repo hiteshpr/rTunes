@@ -21,10 +21,13 @@ export class CountryComponent {
     "New Zealand","Nicaragua","Niger","Nigeria","Niue","Norfolk Island","North Korea","Northern Ireland","Northern Mariana Islands","Norway","Oman","Pakistan","Palau","Palestine","Panama","Papua New Guinea","Paraguay","Peru","Philippines","Pitcairn","Poland","Portugal","Puerto Rico","Qatar","Reunion","Romania","Russian Federation","Rwanda","Saint Helena","Saint Kitts and Nevis","Saint Lucia","Saint Pierre and Miquelon","Saint Vincent and the Grenadines","Samoa","San Marino","Sao Tome and Principe","Saudi Arabia","Scotland","Senegal","Seychelles","Sierra Leone","Singapore","Slovakia","Slovenia","Solomon Islands","Somalia","South Africa","South Georgia and the South Sandwich Islands","South Korea","South Sudan","Spain","SriLanka","Sudan","Suriname","Svalbard and Jan Mayen","Swaziland","Sweden","Switzerland","Syria","Tajikistan","Tanzania","Thailand","Togo","Tokelau","Tonga","Trinidad and Tobago","Tunisia","Turkey","Turkmenistan","Turks and Caicos Islands","Tuvalu","Uganda","Ukraine","United Arab Emirates","United Kingdom","United States","United States Minor Outlying Islands","Uruguay","Uzbekistan","Vanuatu","Venezuela","Vietnam","Virgin Islands, British","Virgin Islands, U.S.","Wales","Wallis and Futuna","Western Sahara","Yemen","Yugoslavia","Zambia","Zimbabwe"
   ];
 
+  public searchError=false;
+  public countryName='';
   public value:any = {};
   
 
   public selected(value:any):void {
+    this.countryName=value.text;
     this.searchCountry(value.text);
   }
 
@@ -34,8 +37,15 @@ export class CountryComponent {
   searchCountry(countryName:string) {
 
 			this._spotifyService.searchCountry(countryName).subscribe(res => {
-				this.searchRes = res.topartists.artist;
-				this.setPage(1);
+          
+        if(res.error == null){
+          this.searchError=false;
+				  this.searchRes = res.topartists.artist;
+				  this.setPage(1);
+
+        }else{
+          this.searchError= true;
+        }
 			})
 		
 	}
@@ -45,5 +55,6 @@ export class CountryComponent {
         }
         this.pager = this._pagerService.getPager(this.searchRes.length, page);
         this.pagedItems = this.searchRes.slice(this.pager.startIndex, this.pager.endIndex + 1);
-	}
+	       
+  }
 }
