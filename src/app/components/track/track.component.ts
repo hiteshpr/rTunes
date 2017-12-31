@@ -24,9 +24,9 @@ export class TrackComponent implements OnInit{
 		this._route.params.map(params => params['id']).subscribe((id) => {
 
 			this._spotifyService.getTrackInfo(id).subscribe(tracks => {
-				console.log(tracks.track);
+				
 				this.trackData = tracks.track;
-				console.log(this.trackData);
+				
 				this.rateArray = new Array(this.findTrackRating());
 				
 			})			
