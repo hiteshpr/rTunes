@@ -29,7 +29,8 @@
 			<div class="well" *ngFor="let track of pagedItems">
 				<img src="{{track.image[3]['#text']}}" height="50" onError="this.src='http://via.placeholder.com/50x50';"
 				 alt="{{track.name}}">
-				<a>{{track.name}}</a>
+				<a *ngIf="track.mbid" href="track/{{track.mbid}}">{{track.name}}</a>
+				<a *ngIf="!track.mbid">{{track.name}}</a>
 				<a href="https://www.youtube.com/results?search_query={{track.name}}" target="_blank">
 					<img src="https://www.youtube.com/yt/about/media/images/brand-resources/icons/YouTube_icon_full-color.svg" height="50" alt="Watch on Youtube" class="pull-right">
 				</a>

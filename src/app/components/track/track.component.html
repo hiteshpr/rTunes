@@ -1,0 +1,38 @@
+<div *ngIf="trackData">
+	<div class="row">
+		<div class="col-md-12">
+			<div class="jumbotron">
+				<div class="row">
+					<div class="col-md-4">
+						<img src="{{trackData.album.image[2]['#text']}}" alt="{{trackData.name}}" class="img-rounded" height="300" width="300">
+					</div>
+					<div class="col-md-8">
+						<h2>
+							<a href="{{trackData.url}}">{{trackData.name}}</a> by <a *ngIf="trackData.artist.name" routerLink="/artist/{{trackData.artist.name}}"> {{trackData.artist.name}}</a> <br>
+							<span *ngFor="let a of rateArray" class="fa fa-star checked">
+							</span>
+						</h2>
+						<span class="label label-danger" *ngFor="let tag of trackData.toptags.tag"><a href="{{tag.url}}">{{tag.name}}</a></span>
+
+						<h4 class="publish-date"><a *ngIf="trackData.album.mbid" routerLink="/album/{{trackData.album.mbid}}"> Album -  {{trackData.album.title }} </a> </h4>
+
+						<div *ngIf="trackData.wiki" class="publish-date">Released on {{trackData.wiki.published | date: 'dd MMM yyyy'}}</div>
+
+						<div class="publish-date"> Duration -  {{trackData.duration/60000 |  number:'.2'}} mins </div>
+						<div class="publish-date"> Playcount -  {{trackData.playcount | number:'.0'}}</div>
+						<a href="{{trackData.url}}" target="_blank" class="btn btn-success pull-right">Play</a>
+					</div>
+				</div>				
+			</div>			
+		</div>
+	</div>
+	<h3>About The Song </h3>
+	<div class="row">
+		<div class="col-md-12">
+			<div class="jumbotron">
+			<div class="row" [innerHTML]="trackData.wiki.summary" style="font-size: large;">
+				</div>				
+			</div>			
+		</div>
+	</div>
+</div>

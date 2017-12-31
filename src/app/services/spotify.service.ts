@@ -15,6 +15,7 @@ export class SpotifyService{
 	private topArtistUrl:string;
 	private topTracksUrl:string;
 	private trackChartUrl: string;
+	private trackUrl: string;
 	apiToken = environment.apiToken;
 
 	constructor(private _http:Http){}
@@ -41,6 +42,13 @@ export class SpotifyService{
 	getAlbumInfo(mbid: string){
 		this.albumUrl = 'http://ws.audioscrobbler.com/2.0/?method=album.getinfo&mbid='+mbid+'&api_key='+this.apiToken+'&format=json';
 		return this._http.get(this.albumUrl).map(res => res.json());
+	}
+
+	getTrackInfo(mbid: string){
+
+		this.trackUrl = 'http://ws.audioscrobbler.com/2.0/?method=track.getInfo&mbid='+mbid+'&api_key='+this.apiToken+'&format=json';
+		return this._http.get(this.trackUrl).map(res => res.json());
+
 	}
 
 	searchTrack(str: string, limit: number){
