@@ -45,7 +45,6 @@ export class SearchComponent {
 		{
 			this._spotifyService.searchTrack(this.searchQuery,200).subscribe(res => {
 				this.searchRes = res.results.trackmatches.track;
-				console.log(this.searchRes);
 				this.setPage(1);
 			})
 		}
